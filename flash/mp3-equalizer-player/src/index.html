@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+    <!-- 
+    Smart developers always View Source. 
+    
+    This application was built using Adobe Flex, an open source framework
+    for building rich Internet applications that get delivered via the
+    Flash Player or to desktops via Adobe AIR. 
+    
+    Learn more about Flex at http://flex.org 
+    // -->
+    <head>
+        <title></title>
+        <meta name="google" value="notranslate" />         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!-- Include CSS to eliminate any default margins/padding and set the height of the html element and 
+             the body element to 100%, because Firefox, or any Gecko based browser, interprets percentage as 
+             the percentage of the height of its parent container, which has to be set explicitly.  Fix for
+             Firefox 3.6 focus border issues.  Initially, don't display flashContent div so it won't show 
+             if JavaScript disabled.
+        -->
+        <style type="text/css" media="screen"> 
+			body
+			{
+				margin-bottom: 0;
+				margin-left: 0;
+				margin-right: 0;
+				margin-top: 0;
+				background-color: black;
+			}   
+            object:focus 
+            {
+            	outline:none;
+           	}
+            #flashContent 
+            { 
+            	display:block; 
+/*             	border: none; */
+            	height: 100%;
+            	width: 100%;
+            }
+            #testcontainer
+            {
+            	position: absolute;
+/*             	border: none; */
+            }
+        </style>
+        
+        <!-- Enable Browser History by replacing useBrowserHistory tokens with two hyphens -->
+        <!-- BEGIN Browser History required section -->
+        <link rel="stylesheet" type="text/css" href="history/history.css" />
+        <script type="text/javascript" src="history/history.js"></script>
+        <!-- END Browser History required section -->  
+    </head>
+    <body onload="setBackGroundImageSize()" onresize="setBackGroundImageSize()">
+       	<script type="text/javascript">
+       	
+       	stageWidth  = 0.0;
+       	stageHeight = 0.0;
+       	
+	        function setBackGroundImageSize()
+	        {  
+	        
+	            var windowWidth = 0, windowHeight = 0;
+            
+	            if( typeof( window.innerWidth ) == 'number' ) //Non-IE
+	            {
+	                windowWidth  = window.innerWidth;
+	                windowHeight = window.innerHeight;
+	            } 
+	            else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) //IE 6+ in 'standards compliant mode'
+	            {
+	                windowWidth  = document.documentElement.clientWidth;
+	                windowHeight = document.documentElement.clientHeight;
+	            } 
+	            else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) //IE 4 compatible
+	            {
+	                windowWidth  = document.body.clientWidth;
+	                windowHeight = document.body.clientHeight;
+	            }
+	            
+	            var x = (800 > windowWidth  ? windowWidth  : 800); 
+	            var y = (800 > windowHeight ? windowHeight : 800);
+            
+		        var songImage        = document.getElementById("testcontainer");
+
+	            songImage.style.width       = (windowWidth-20)+"px";
+				songImage.style.height      = (windowHeight-20)+"px";
+	            songImage.style.top         = 10+"px";
+	            songImage.style.left        = 10+"px";
+	            
+	            stageWidth  = windowWidth  - 20;
+	            stageHeight = windowHeight - 20;
+	            
+	            console.log(stageWidth);
+	            console.log(stageHeight);
+	        }
+        </script>        
+            
+        <script type="text/javascript" src="swfobject.js"></script>
+        <script type="text/javascript">
+            // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+            var swfVersionStr = "10.2.0";
+            // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+            var xiSwfUrlStr = "expressInstall.swf";
+            
+		    /* FLASH VARS */
+			var flashvars = {};	
+		    
+			flashvars.equalizerHeightPercent = 0.80;
+		    flashvars.gapHeightPercent       = 0.045;
+		    flashvars.playerHeightPercent    = 0.20;
+			
+			// SWEET PLAYER FLASH VARS //
+			flashvars.albumAttributesTextColor         = 0xffffff;
+//			flashvars.albumArtistText                  = "Kali Ma"
+//			flashvars.albumNameText                    = "St. Isidore of Seville"
+//			flashvars.albumSongText                    = "Kickin' Up Dust"
+			flashvars.eqBarsColor                      = 0x68ecde;
+			flashvars.eqTopsColor                      = 0xffffff;
+			flashvars.borderWidthIsPercent             = false;
+			flashvars.borderWidthPercentOrValue        = 2.0;
+			flashvars.cornerRadii                      = 20.0;
+			flashvars.mainBackgroundColor              = 0x1B1B1B;
+			flashvars.songPlayerBackgroundAlpha        = 0.3;
+			flashvars.songPlayerBackgroundColor        = 0x68ecde;
+			flashvars.songPlayerOutsideBorderAlpha     = 0.8;
+			flashvars.songPlayerOutsideBorderColor     = 0x000000;
+			flashvars.songPlayerOutsideBorderThickness = 1.0;
+			flashvars.componentsBackgroundAlpha        = 0.8;
+			flashvars.componentsBackgroundColor        = 0x1B1B1B;
+			flashvars.playPauseHoverColor              = 0x000000;
+			flashvars.playPauseNormalColor             = 0x1B1B1B;
+			flashvars.playPauseSymbolColor             = 0xffffff;
+			flashvars.playPauseGlowAlpha               = 1.0;
+			flashvars.playPauseGlowColor               = 0x68ecde;
+			flashvars.songUrl                          = "./resources/audio/my-my-hey-hey.mp3";
+			flashvars.timeIndNormalColor               = 0xffffff;
+			flashvars.timeIndHoverColor                = 0x000000;
+			flashvars.timeIndGradientNormalColor       = 0x1B1B1B;
+			flashvars.timeIndGradientHoverColor        = 0x68ecde;
+			flashvars.timeIndTextColor                 = 0xffffff;
+			flashvars.visualizationUnderAlpha          = 0.2;
+			flashvars.visualizationUnderColor          = 0x434343;
+			flashvars.visualizationContainerColor      = 0x1B1B1B;
+			flashvars.volumeSpeakerColor               = 0xffffff;
+			flashvars.volumeLevelBackgroundIndAlpha    = 0.0;
+			flashvars.volumeLevelIndColor              = 0xffffff;
+			flashvars.volumeLevelIndHoverColor         = 0x000000;
+			flashvars.volumeTickersGlowAlpha           = 0.8;
+			flashvars.volumeTickersGlowColor           = 0x68ecde;
+/* 			flashvars.volumeSpeackerGlowColor          = 0x68ecde;
+			flashvars.volumeSpeackerHoverColor         = 0x000000; */
+
+			flashvars.eqPercentHeight                 = 0.35;
+			flashvars.eqPercentWidth                  = 0.75;
+			flashvars.eqPercentOfLeftoverForTopOffset = 1.20;
+			flashvars.shadowPercentMaxHeight          = 0.4;
+			flashvars.shadowPercentMaxWidth           = 0.95;
+			flashvars.eqBackgroundAlphasArray         = [0.35, 0.1];
+			flashvars.eqBackgroundColorsArray         = [0x68ecde, 0x68ecde];
+			flashvars.eqBackgroundRatiosArray         = [0, 227];
+			flashvars.eqBackgroundCornerRadii         = 8.0;
+			
+			flashvars.backgroundGridAlpha      = 0.2;
+			flashvars.backgroundGridColor      = 0x68ecde;
+			flashvars.eqGridColorArray =
+				[0x000000,0x000000,0x000000,0x000000,0x000000,0x000000,0x000000,0x000000,0x000000,0x000000,0x000000,0x000000,0x000000,0x000000,0x000000,0x000000];//,0x000000,0x000000,0x000000,0x000000];
+			flashvars.eqBlockCornerRadii       = 0;
+			flashvars.eqGridTopsColor          = 0x68ecde;
+			flashvars.eqGridTopsGlowColor      = 0x68ecde;
+			flashvars.logoImageLocation        = "./resources/images/kalima-logo-black-glow-blue.png";
+			flashvars.percentSpaceHeight       = 0.13;
+			flashvars.percentSpaceWidth        = 0.09;
+			
+            
+			// PARAMS
+			var params = {};
+			params.allowfullscreen = "true";
+			params.allowScriptAccess = "always";
+			params.bgcolor = "#ffffff";
+			params.wmode = "transparent";
+			params.scale = "exactFit";
+			
+            var attributes = {};
+            attributes.id = "SongPlayer";
+            attributes.name = "SongPlayer";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                "SweetPlayerSolo.swf", "flashContent", 
+                "100%", "100%", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+            // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+            //swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+        </script>
+        
+        <!-- SWFObject's dynamic embed method replaces this alternative HTML content with Flash content when enough 
+             JavaScript and Flash plug-in support is available. The div is initially hidden so that it doesn't show
+             when JavaScript is disabled.
+        -->
+        <div id="testcontainer">
+	        <div id="flashContent">
+	            <p>
+	                To view this page ensure that Adobe Flash Player version 
+	                10.2.0 or greater is installed. 
+	            </p>
+	            <script type="text/javascript"> 
+	                var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://"); 
+	                document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" 
+	                                + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" ); 
+	            </script> 
+	        </div>
+        </div>
+        
+        <noscript>
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%" id="SongPlayer">
+                <param name="movie" value="SongPlayer.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#ffffff" />
+                <param name="allowScriptAccess" value="sameDomain" />
+                <param name="allowFullScreen" value="true" />
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" data="SongPlayer.swf" width="100%" height="100%">
+                    <param name="quality" value="high" />
+                    <param name="bgcolor" value="#ffffff" />
+                    <param name="allowScriptAccess" value="sameDomain" />
+                    <param name="allowFullScreen" value="true" />
+                <!--<![endif]-->
+                <!--[if gte IE 6]>-->
+                    <p> 
+                        Either scripts and active content are not permitted to run or Adobe Flash Player version
+                        10.2.0 or greater is not installed.
+                    </p>
+                <!--<![endif]-->
+                    <a href="http://www.adobe.com/go/getflashplayer">
+                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" />
+                    </a>
+                <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+            </object>
+        </noscript>     
+   </body>
+</html>
