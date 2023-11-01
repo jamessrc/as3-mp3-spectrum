@@ -1,2 +1,3 @@
 .DS_Store
-heroku/.git
+bin-debug
+.settings
