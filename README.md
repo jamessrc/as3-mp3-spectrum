@@ -1,4 +1,4 @@
-# Oldschool ActionScript3 Spectrum Visualization Mp3 Player
+# ActionScript3 Spectrum Visualization Mp3 Player
 
 ![Mp3 Equalizer Player](images/mp3-equalizer-player.gif)
 
